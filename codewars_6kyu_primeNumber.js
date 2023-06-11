@@ -30,7 +30,3 @@ function isPrime(num) {
 
 console.log(isPrime(75));
 console.log(isPrime(11));
-
-
-
-
