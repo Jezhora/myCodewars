@@ -8,7 +8,7 @@
 
 var countBits = function(n) {
     // Program Me
-    const binary = n.toString(2).toString()
+    const binary = n.toString(2)
     let count = 0;
      
     for(let i = 0; i < binary.length; i++) {
@@ -18,3 +18,12 @@ var countBits = function(n) {
     }
     return count
 };
+
+// second solution
+// var countBits = function(n) {
+//     // Program Me
+    
+//     const binary = n.toString(2).split('0').join('').length
+
+//     return binary;
+// };
