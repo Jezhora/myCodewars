@@ -18,21 +18,21 @@
 let tickets = [['SOEEIUZ',86], ['OHPBKBB',88], ['TRZKQIN',72], ['LIA',65], ['KLWVZ',67], ['UDQJLU',69], ['MZMQ',83], ['FQ',83], ['AW',75]];
 function bingo(ticket, win){
 
-    let countWin = 0;
+  let countWin = 0;
+  
+  ticket.forEach((element) => {
+    let code = element[0]
+    let target = element[1]
     
-    ticket.forEach((element) => {
-       let code = element[0]
-       let target = element[1]
-        
-        for(let i = 0; i <code.length; i++) {
-            if (code.charCodeAt(i) === target) {
-                countWin ++;
-                break;
-            }
-        }
-    });
+    for(let i = 0; i <code.length; i++) {
+      if (code.charCodeAt(i) === target) {
+        countWin ++;
+        break;
+      }
+    }
+  });
 
-    return countWin >= win ? 'Winner!' : 'Loser!'
+  return countWin >= win ? 'Winner!' : 'Loser!'
 }
 console.log(bingo(tickets, 1)); //winner
 

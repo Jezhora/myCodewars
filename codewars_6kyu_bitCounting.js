@@ -7,22 +7,22 @@
 // so the function should return 5 in this case
 
 var countBits = function(n) {
-    // Program Me
-    const binary = n.toString(2)
-    let count = 0;
-     
-    for(let i = 0; i < binary.length; i++) {
-        if(binary[i] === '1') {
-            count ++;
-        }
+  // Program Me
+  const binary = n.toString(2)
+  let count = 0;
+    
+  for(let i = 0; i < binary.length; i++) {
+    if(binary[i] === '1') {
+      count ++;
     }
-    return count
+  }
+  return count
 };
 
 // second solution
 // var countBits = function(n) {
 //     // Program Me
-    
+  
 //     const binary = n.toString(2).split('0').join('').length
 
 //     return binary;
