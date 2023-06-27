@@ -21,34 +21,31 @@
 
 const whatTimeIsIt = function(angle) {
     // Your code here
-    const clockDegree = 360,
-          minuterInHour = 60,
-          clockHours = 12,
-          clockHoursToMinutes = clockHours * minuterInHour;
+  const clockDegree = 360,
+        minuterInHour = 60,
+        clockHours = 12,
+        clockHoursToMinutes = clockHours * minuterInHour;
 
-    let timeInMinutes = (angle / clockDegree) * clockHoursToMinutes;
+  let timeInMinutes = (angle / clockDegree) * clockHoursToMinutes;
 
-    let hours = Math.floor((timeInMinutes / minuterInHour) % clockHours)
-    let minutes = Math.floor(timeInMinutes % minuterInHour)
-    console.log(minutes)
+  let hours = Math.floor((timeInMinutes / minuterInHour) % clockHours)
+  let minutes = Math.floor(timeInMinutes % minuterInHour)
+  
   if(angle === clockDegree || angle < 30) {
-        hours = 12;
+      hours = 12;
     }
     
     if (hours < 10) {
-        hours = `0${hours}` 
+      hours = `0${hours}` 
     } 
     if (minutes < 10) {
-        minutes = `0${minutes}`   
-    }
-        
+      minutes = `0${minutes}`   
+    }    
     return `${hours}:${minutes}`
-    
   }
+  
+console.log(whatTimeIsIt(270));
 
-  console.log(whatTimeIsIt(270));
-
-
-//   console.log((360 / 12) * 6)
-//   console.log((180 / 360) * 12)
+//console.log((360 / 12) * 6)
+//console.log((180 / 360) * 12)
 

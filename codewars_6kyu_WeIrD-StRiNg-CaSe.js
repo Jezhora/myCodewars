@@ -12,55 +12,30 @@
 // toWeirdCase( "String" );//=> returns "StRiNg"
 // toWeirdCase( "Weird string case" );//=> returns "WeIrD StRiNg CaSe"
 
-function toWeirdCase(string) {
-  //TODO
-	// let stringWeird = '';
-
-	// for (let i = 0; i < string.length; i++) {
-
-	// 	if(i === 0 || i % 2 === 0) {
-				
-	// 		stringWeird += string[i].toUpperCase();
-		
-	// 	} else {
-
-	// 		stringWeird += string[i].toLowerCase();
-
-	// 	}
-
-	// 	if(string.includes(' ')) {
-
-	// 	}
-
-
-// }	
-  // return stringWeird
-
-}
 
 console.log(toWeirdCase('This is a test'))
 
 function toWeirdCase(string) {
 
-	let stringWeird = '';
+  let stringWeird = '';
 
-	string.split(' ').forEach(element => {
+  string.split(' ').forEach(element => {
 
-		for (let i = 0; i < element.length; i++) {
-			if(i === 0 || i % 2 === 0) {
-					stringWeird += element[i].toUpperCase();
-				} else {
-					stringWeird += element[i].toLowerCase();
-			}
+    for (let i = 0; i < element.length; i++) {
+      if(i === 0 || i % 2 === 0) {
+          stringWeird += element[i].toUpperCase();
+        } else {
+          stringWeird += element[i].toLowerCase();
+      }
 
-			if( i === element.length - 1){
-				stringWeird += ' ';
-			}
-		}	
+      if( i === element.length - 1){
+        stringWeird += ' ';
+      }
+    }	
 
-	});
+  });
 
-	return stringWeird.trim()
+  return stringWeird.trim()
 }
 
 toWeirdCase('This is a test')

@@ -23,8 +23,8 @@ function isPrime(num) {
     if(num % i === 0) {
       return false
     } 
-   } 
-    return true    
+  } 
+  return true    
 
 }
 

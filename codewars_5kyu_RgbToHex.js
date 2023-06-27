@@ -16,21 +16,21 @@
 function rgb(r, g, b){
     // complete this function 
     
-	let hexColour = '';
+  let hexColour = '';
 
-	Array.from([r, g, b]).forEach(item => {
+  Array.from([r, g, b]).forEach(item => {
 
-		if (item <= 0){
-				hexColour += '00';
-		} else if (item > 255) {
-			hexColour += 'FF';
-		} else if(item.toString(16).length < 2) {
+    if (item <= 0){
+        hexColour += '00';
+    } else if (item > 255) {
+      hexColour += 'FF';
+    } else if(item.toString(16).length < 2) {
       hexColour += `0${item.toString(16).toUpperCase()}`
     }else {
-			hexColour += item.toString(16).toUpperCase();
-		}
-	})
-	return hexColour;
+      hexColour += item.toString(16).toUpperCase();
+    }
+  })
+  return hexColour;
 }
 console.log(rgb(13,215,88));
 // console.log(148, 0, 211);
