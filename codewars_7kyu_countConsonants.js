@@ -8,7 +8,7 @@ function consonantCount(str) {
   // ...
   const vowels = [ 'a', 'e', 'i', 'o', 'u'];
   const strArr = str.toLowerCase().split('').filter(e => { 
-    return e !== vowels.find(i => i === e) && e !== ' ' && e.charCodeAt() > 96 && e.charCodeAt() < 123;
+    return e !== vowels.find(i => i === e) && e.charCodeAt() > 96 && e.charCodeAt() < 123;
   })
 
   return strArr.length;
