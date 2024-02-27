@@ -1,11 +1,50 @@
 class File {
   // Write your code here :D
-  constructor (fullname, context) {
-    this.fullname = fullname;
-    this.context = context;
+  _fullName;
+  _extention;
+
+  constructor (fullName, context = '') {
+
+    this._fullName = fullName;
+    this._extention = this.setExtention(fullName);
+    this._fileName = this.setfileName(fullName);
+
+    this._context = context;
   }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  get extention() {
+    return this._extention;
+  }
+
+  get fileName() {
+    return this._fileName;
+  }
+
+  setExtentionIndex(fullName) {
+    return this._extentionIndex = fullName.search(/\.[a-z]+$/)
+  }
+
+  setExtention(fullName) {
+    const index = fullName.search(/\.[a-z]+$/);
+    return this._extention = fullName.slice(index);
+  }
+
+  setfileName(fullName) {
+    const index = fullName.search(/\.[a-z]+$/);
+    return this._fileName = fullName.slice(0, index);
+  }
+
+
 }
 
+const f = new File('jjasd.adhfadi.txt');
+f.extention= 'EGG';
+f.fileName = 'NO'
+console.log(f.extention, f.fileName)
 
 
 
@@ -23,57 +62,59 @@ class File {
 
 
 
-`Fun with ES6 Classes #6 - Fake Files (Basic)
-Kata and Series Overview
-In Kata #1-4 in this series, we learned the fundamentals and features of ES6 classes including ES6 class syntax, classical inheritance in ES6 (as opposed to prototypal inheritance in all previous versions of ECMAScript/Javascript), getters and setters. In Kata #5 of this Series we began to apply our knowledge of ES6 classes to solve the challenge, but the challenge was still a bit Codecademy-like (traning level code) and did not resemble a real world application. Therefore, in this Kata of the series, we are going to apply our knowledge of ES6 class syntax and features in a semi-real world application.
 
-Task
-You will be defining a class File (ES6 syntax please :) ) with the following properties and methods:
 
-Properties
-fullName
-filename
-extension
-Methods
-getContents()
-write(str)
-gets()
-getc()
-Your File class should exhibit the following behaviour:
+// `Fun with ES6 Classes #6 - Fake Files (Basic)
+// Kata and Series Overview
+// In Kata #1-4 in this series, we learned the fundamentals and features of ES6 classes including ES6 class syntax, classical inheritance in ES6 (as opposed to prototypal inheritance in all previous versions of ECMAScript/Javascript), getters and setters. In Kata #5 of this Series we began to apply our knowledge of ES6 classes to solve the challenge, but the challenge was still a bit Codecademy-like (traning level code) and did not resemble a real world application. Therefore, in this Kata of the series, we are going to apply our knowledge of ES6 class syntax and features in a semi-real world application.
 
-Constructor
-Your constructor should accept two arguments in the following order: fullName and contents, where fullName is the full name of the file (including file extension) and contents is the file contents.
+// Task
+// You will be defining a class File (ES6 syntax please :) ) with the following properties and methods:
 
-An instance of your File class should exhibit the following behaviour:
+// Properties
+// fullName
+// fileName
+// extension
+// Methods
+// getContents()
+// write(str)
+// gets()
+// getc()
+// Your File class should exhibit the following behaviour:
 
-fullName (property)
-Should contain the full name of the file, including the file extension. Please note that the fullName property should be read-only, which means that attempts to reassign fullName a new value should fail and it should retain its original value. 
+// Constructor
+// Your constructor should accept two arguments in the following order: fullName and contents, where fullName is the full name of the file (including file extension) and contents is the file contents.
 
-filename (property)
-Should contain the name of the file, excluding the file extension. Should also be read-only which means reassignment attempts should fail. E.g.
+// An instance of your File class should exhibit the following behaviour:
 
-extension (property)
-Should contain the file extension. Read-only. E.g.
+// fullName (property)
+// Should contain the full name of the file, including the file extension. Please note that the fullName property should be read-only, which means that attempts to reassign fullName a new value should fail and it should retain its original value. 
 
-getContents (method)
-Should return the contents of the file every time. E.g.
+// fileName (property)
+// Should contain the name of the file, excluding the file extension. Should also be read-only which means reassignment attempts should fail. E.g.
 
-write (method)
-Should accept exactly 1 argument str, the new content to be written to the file. The new content should be written on a new line on the file.
+// extension (property)
+// Should contain the file extension. Read-only. E.g.
 
-gets (method)
-Returns a line on the file, starting on Line 1. Successive calls to the method should return successive lines on the file. If the number of calls exceeds the number of lines on the file, simple return undefined
+// getContents (method)
+// Should return the contents of the file every time. E.g.
 
-getc (method)
-Should return a character on the file, starting from the first character. Successive calls should return successive characters on the file. If the number of calls exceeds the number of characters on the file, it should simply return undefined.
+// write (method)
+// Should accept exactly 1 argument str, the new content to be written to the file. The new content should be written on a new line on the file.
 
-Note regarding filenames
-For the purposes of this Kata, all filenames used in this Kata will be valid filenames. Valid filenames are summarized as follows:
+// gets (method)
+// Returns a line on the file, starting on Line 1. Successive calls to the method should return successive lines on the file. If the number of calls exceeds the number of lines on the file, simple return undefined
 
-Contains a filename and extension (e.g. LICENSE.txt is a valid filename, LICENSE is not)
-Filename contains only alphanumeric characters (both uppercase and lowercase), underscores, spaces and/or dots (e.g. index.php, class.phptester.php, alpha beta.gamma_delta01.complicatedExample.txt are all valid filenames). Edge cases will not be considered (e.g. successive dots - Hello World..txt - will not appear in the test cases)
-Extension contains only lowercase alphanumeric characters (e.g. txt, php, php3 are all valid)
-Note regarding file content
-All file content will be valid. In this Kata, valid file content may include alphanumeric characters (uppercase or lowercase), underscores, ordinary whitespace, punctuation or mathematical symbols, in which each line will be separated from the next by a newline character ("\n"). There will not be tabs or other whitespace/newline characters other than "\s" (spacebar) or "\n" and the contents of any file will not start or end with a newline. You may also assume that when the tests use the write(str) method, the string str will not contain newline characters itself.
+// getc (method)
+// Should return a character on the file, starting from the first character. Successive calls should return successive characters on the file. If the number of calls exceeds the number of characters on the file, it should simply return undefined.
 
-`
+// Note regarding fileNames
+// For the purposes of this Kata, all fileNames used in this Kata will be valid fileNames. Valid fileNames are summarized as follows:
+
+// Contains a fileName and extension (e.g. LICENSE.txt is a valid fileName, LICENSE is not)
+// fileName contains only alphanumeric characters (both uppercase and lowercase), underscores, spaces and/or dots (e.g. index.php, class.phptester.php, alpha beta.gamma_delta01.complicatedExample.txt are all valid fileNames). Edge cases will not be considered (e.g. successive dots - Hello World..txt - will not appear in the test cases)
+// Extension contains only lowercase alphanumeric characters (e.g. txt, php, php3 are all valid)
+// Note regarding file content
+// All file content will be valid. In this Kata, valid file content may include alphanumeric characters (uppercase or lowercase), underscores, ordinary whitespace, punctuation or mathematical symbols, in which each line will be separated from the next by a newline character ("\n"). There will not be tabs or other whitespace/newline characters other than "\s" (spacebar) or "\n" and the contents of any file will not start or end with a newline. You may also assume that when the tests use the write(str) method, the string str will not contain newline characters itself.
+
+// `
