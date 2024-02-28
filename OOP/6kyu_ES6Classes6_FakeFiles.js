@@ -1,50 +1,170 @@
+// class File {
+//   // Write your code here :D
+//   _fullName;
+//   _extension;
+
+//   constructor (fullName, content = '') {
+
+//     this._fullName = fullName;
+//     this._extension = this.setExtension(fullName);
+//     this._fileName = this.setfileName(fullName);
+
+//     this._content = content.split('\n');
+//     this._line = 0;
+//     this._char = 0;
+//   }
+
+//   get fullName() {
+
+//     if(this._extension !== undefined) {
+//       return this._fullName;
+//     }
+
+//   }
+
+//   get extension() {
+//     return this._extension;
+//   }
+
+//   get filename() {
+//     if(this._extension !== undefined) {
+//     return this._fileName;
+//     }
+//   }
+
+//   setExtension(fullName) {
+//     const extensionIndex = fullName.search(/\.[a-z]+$/);
+//     if(extensionIndex !== -1) {
+//       return this._extension = fullName.slice(extensionIndex + 1);
+//     }
+//   }
+
+//   setfileName(fullName) {
+//     const extensionIndex = fullName.search(/\.[a-z]+$/);
+//     return this._fileName = fullName.slice(0, extensionIndex);
+//   }
+
+//   getContents() {
+//     return this._content;
+//   }
+
+//   write(content) {
+//     this._line = 0;
+//     this._char = 0;
+//     return this._content = this._content.length > 0 ? this._content + '\\n' + content :  content;
+//   }
+
+//   gets() {
+//     const answer = this._content.split('\\n')[this._line];
+//     this._line += 1;
+
+//     return answer
+//   }
+
+//   getc() {
+//     const answer = this._content[this._char];
+//     this._char += 1;
+
+//     return answer
+//   }
+
+// }
 class File {
   // Write your code here :D
   _fullName;
-  _extention;
+  _extension;
 
-  constructor (fullName, context = '') {
+  constructor (fullName, content = '') {
 
     this._fullName = fullName;
-    this._extention = this.setExtention(fullName);
+    this._extension = this.setExtension(fullName);
     this._fileName = this.setfileName(fullName);
 
-    this._context = context;
+    this._content = content ? content.split('\n') : [];
+    this._line = 0;
+    this._char = 0;
   }
 
   get fullName() {
-    return this._fullName;
+
+    if(this._extension !== undefined) {
+      return this._fullName;
+    }
+
   }
 
-  get extention() {
-    return this._extention;
+  get extension() {
+    return this._extension;
   }
 
-  get fileName() {
+  get filename() {
+    if(this._extension !== undefined) {
     return this._fileName;
+    }
   }
 
-  setExtentionIndex(fullName) {
-    return this._extentionIndex = fullName.search(/\.[a-z]+$/)
-  }
-
-  setExtention(fullName) {
-    const index = fullName.search(/\.[a-z]+$/);
-    return this._extention = fullName.slice(index);
+  setExtension(fullName) {
+    const extensionIndex = fullName.search(/\.[a-zA-Z0-9]+$/);
+    if(extensionIndex !== -1) {
+      return fullName.slice(extensionIndex + 1);
+    }
   }
 
   setfileName(fullName) {
-    const index = fullName.search(/\.[a-z]+$/);
-    return this._fileName = fullName.slice(0, index);
+    const extensionIndex = fullName.search(/\.[a-zA-Z0-9]+$/);
+    return this._fileName = fullName.slice(0, extensionIndex);
   }
 
+  getContents() {
+    return this._content.join('\n');
+  }
+
+  write(content) {
+    this._line = 0;
+    this._char = 0;
+    return this._content.push(content);
+  }
+
+  gets() {
+    const answer = this._content[this._line];
+    this._line += 1;
+
+    return answer
+  }
+
+  getc() {
+    const answer = this._content.join('\n')[this._char];
+    this._char += 1;
+
+    return answer
+  }
 
 }
 
-const f = new File('jjasd.adhfadi.txt');
-f.extention= 'EGG';
-f.fileName = 'NO'
-console.log(f.extention, f.fileName)
+const example = new File('1n67r3pr2nbwufxpcnd5p.u8jduqkqp1lqjx3cdliim.frb8vmexpr0eh7x9xw2cpt.wzbiuwo82ojrcs3482z6n', "");
+
+console.log(example.filename)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
